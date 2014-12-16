@@ -412,7 +412,7 @@
 						targetRect = target.getBoundingClientRect();
 					}
 
-					target.parentNode.insertBefore(dragEl, target.nextSibling);
+					el.appendChild(dragEl);
 					this._animate(dragRect, dragEl);
 					target && this._animate(targetRect, target);
 				}
