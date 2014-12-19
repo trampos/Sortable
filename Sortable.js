@@ -476,7 +476,7 @@
 						rootEl.insertBefore(dragEl, cloneEl || nextEl);
 					}
 					else if (!canSort) {
-						rootEl.appendChild(dragEl);
+						rootEl.insertBefore(dragEl, null);
 					}
 
 					return;
@@ -494,8 +494,8 @@
 					}
 
 					_cloneHide(isOwner);
-
-					el.appendChild(dragEl);
+					
+					el.insertBefore(dragEl, null);
 					this._animate(dragRect, dragEl);
 					target && this._animate(targetRect, target);
 				}
@@ -529,7 +529,7 @@
 					}
 
 					if (after && !nextSibling) {
-						el.appendChild(dragEl);
+						el.insertBefore(dragEl, null);
 					} else {
 						target.parentNode.insertBefore(dragEl, after ? nextSibling : target);
 					}
