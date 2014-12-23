@@ -219,6 +219,7 @@
 			if (target && evt.type == 'selectstart') {
 				if (target.tagName != 'A' && target.tagName != 'IMG') {
 					target.dragDrop();
+					return;
 				}
 			}
 
