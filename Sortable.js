@@ -510,7 +510,7 @@
 				_css(ghostEl, 'zIndex', '100000');
 				_css(ghostEl, 'pointerEvents', 'none');
 
-				options.fallbackOnBody && document.body.appendChild(ghostEl) || rootEl.appendChild(ghostEl);
+				options.fallbackOnBody && document.body.insertBefore(ghostEl, null) || rootEl.insertBefore(ghostEl, null);
 
 				// Fixing dimensions.
 				ghostRect = ghostEl.getBoundingClientRect();
@@ -602,7 +602,7 @@
 						rootEl.insertBefore(dragEl, cloneEl || nextEl);
 					}
 					else if (!canSort) {
-						rootEl.appendChild(dragEl);
+						rootEl.insertBefore(dragEl, null);
 					}
 
 					return;
@@ -625,7 +625,7 @@
 
 					if (_onMove(rootEl, el, dragEl, dragRect, target, targetRect) !== false) {
 						if (!dragEl.contains(el)) {
-							el.appendChild(dragEl);
+							el.insertBeforeChild(dragEl, null);
 							parentEl = el; // actualization
 						}
 
@@ -686,7 +686,7 @@
 
 						if (!dragEl.contains(el)) {
 							if (after && !nextSibling) {
-								el.appendChild(dragEl);
+								el.insertBefore(dragEl, null);
 							} else {
 								target.parentNode.insertBefore(dragEl, after ? nextSibling : target);
 							}
@@ -901,7 +901,7 @@
 			order.forEach(function (id) {
 				if (items[id]) {
 					rootEl.removeChild(items[id]);
-					rootEl.appendChild(items[id]);
+					rootEl.insertBefore(items[id], null);
 				}
 			});
 		},
