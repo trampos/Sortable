@@ -666,14 +666,7 @@
 						else if (floating) {
 							var elTop = dragEl.offsetTop,
 								tgTop = target.offsetTop;
-
-<<<<<<< HEAD
-					if (after && !nextSibling) {
-						target.parentNode.insertBefore(dragEl, target.nextSibling);
-					} else {
-						target.parentNode.insertBefore(dragEl, after ? nextSibling : target);
-					}
-=======
+								
 							if (elTop === tgTop) {
 								after = (target.previousElementSibling === dragEl) && !isWide || halfway && isWide;
 							} else {
@@ -682,7 +675,6 @@
 						} else {
 							after = (nextSibling !== dragEl) && !isLong || halfway && isLong;
 						}
->>>>>>> RubaXa/master
 
 						if (!dragEl.contains(el)) {
 							if (after && !nextSibling) {
